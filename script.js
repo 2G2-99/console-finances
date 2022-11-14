@@ -138,5 +138,26 @@ const minimalValue = Math.min(...valuesArray);
 // Month of minimal value
 const monthOfMinimal = monthsArray[44];
 
+// Breaking Line
+let breakLine = '-'.padStart(50, '-');
+
 // Display on console
-console.log();
+console.log(
+	'Financial Analysis'.padStart(35),
+	'\n',
+	breakLine,
+	'\n',
+	'Total Months: ' + totalMonths,
+	'\n',
+	'\n',
+	'Total: $' + sumOfValues,
+	'\n',
+	'\n',
+	'Average Change: $' + averageOfPeriod,
+	'\n',
+	'\n',
+	`Greatest Increase in Profits: ${monthOfGreatest} ($${greatestValue})`,
+	'\n',
+	'\n',
+	`Greatest Decrease in Profits: ${monthOfMinimal} ($${minimalValue})`
+);
