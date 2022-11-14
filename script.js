@@ -1,9 +1,3 @@
-/* 
-PSEUDOCODE
-
--
-*/
-
 var finances = [
 	['Jan-2010', 867884],
 	['Feb-2010', 984655],
@@ -92,3 +86,78 @@ var finances = [
 	['Jan-2017', 138230],
 	['Feb-2017', 671099],
 ];
+
+/**
+ * - Create a function to get into the finances array and the other arrays inside of it.
+	- Clone both, the months and the values on separate arrays.
+ */
+// Setting variables
+let monthsArray = [];
+let valuesArray = [];
+
+// Looping the parent array
+for (let i = 0; i < finances.length; i++) {
+	monthsArray.push(finances[i][0]);
+	valuesArray.push(finances[i][1]);
+}
+
+/**
+ * - Count the total number of months inside the dataset.
+ */
+const totalMonths = finances.length;
+
+/**
+ * 	- Calculate the net total of Profit/Losses
+ */
+let initialValue = 0;
+const sumOfValues = valuesArray.reduce(
+	(initialValue, currentValue) => initialValue + currentValue
+);
+
+/**
+ * - Calculate the average of Profit/Losses on the entire period
+ */
+const averageOfPeriod = Math.round(sumOfValues / totalMonths);
+
+/**
+ * 	- Find and print into the console both greatest increase and greatest decrease (with date)
+ */
+// Greatest Value of period
+const greatestValue = Math.max(...valuesArray);
+// Position in the array of greatest value
+// console.log(valuesArray.indexOf(greatestValue));
+
+// Month of greatest value
+const monthOfGreatest = monthsArray[25];
+
+// Minimal value of period
+const minimalValue = Math.min(...valuesArray);
+// Position in the array of minimal value
+// console.log(valuesArray.indexOf(minimalValue));
+
+// Month of minimal value
+const monthOfMinimal = monthsArray[44];
+
+// Breaking Line
+let breakLine = '-'.padStart(50, '-');
+
+// Display on console
+console.log(
+	'Financial Analysis'.padStart(35),
+	'\n',
+	breakLine,
+	'\n',
+	'Total Months: ' + totalMonths,
+	'\n',
+	'\n',
+	'Total: $' + sumOfValues,
+	'\n',
+	'\n',
+	'Average Change: $' + averageOfPeriod,
+	'\n',
+	'\n',
+	`Greatest Increase in Profits: ${monthOfGreatest} ($${greatestValue})`,
+	'\n',
+	'\n',
+	`Greatest Decrease in Profits: ${monthOfMinimal} ($${minimalValue})`
+);
