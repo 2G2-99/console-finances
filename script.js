@@ -117,7 +117,12 @@ const sumOfValues = valuesArray.reduce(
 /**
  * - Calculate the average of Profit/Losses on the entire period
  */
-const averageOfPeriod = Math.round(sumOfValues / totalMonths);
+// Change
+const Change = valuesArray.reduce(
+	(initialValue, currentValue) => (initialValue -= currentValue)
+);
+// Average
+const averageOfPeriod = Math.round(Change / totalMonths);
 
 /**
  * 	- Find and print into the console both greatest increase and greatest decrease (with date)
